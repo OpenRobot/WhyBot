@@ -9,4 +9,6 @@ bot = commands.Bot(command_prefix=when_mentioned_or("w!", "w?"), activity=discor
 async def ping(ctx):
     await ctx.reply(f"🏓Pong! `{round(bot.latency*1000)}ms`")
 
+bot.load_extension("jishaku")
+
 bot.run(config.token)
