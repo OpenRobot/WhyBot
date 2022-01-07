@@ -17,36 +17,7 @@ async def on_ready():
     print(f"{bot.user} is now online!")
 
 
-def check_all_message(check_for, message):
-    for e in message.embeds:
-        if any(item and check_for in item for item in (e.title, e.description)):
-            return True
-    return False
-
-@bot.event
-async def on_message(message):
-    if message.author.id == 438057969251254293 or message.author.id == 235148962103951360:
-        
-        if check_all_message("Greninja-Ash appeared", message):
-            await message.channel.set_permissions(message.author, read_messages=False)
-            await message.reply("ASH NINJA ALERT, ASH NINJA ALERT, ASH NINJA ALERT\nSEND `OMG ASH NINJA` TO CONFIRM YOU ARE READY TO CATCH THE ASH NINJA!!!")
-            def check(msg):
-                return msg.content == "OMG ASH NINJA" and msg.channel == message.channel             
-            msg = await bot.wait_for("message", check=check)
-            if msg.content:
-                 await message.channel.set_permissions(message.author, read_messages=True)
-                 await msg.reply("Done! Unlocked channel for Myuu. Good luck on catching the Ash Ninja!")
-
-        if check_all_message("★", message) and check_all_message("appeared", message):
-            await message.channel.set_permissions(message.author, read_messages=False)
-            await message.reply("SHINY ALERT, SHINY ALERT, SHINY ALERT\nSEND `OMG SHINY` TO CONFIRM YOU ARE READY TO CATCH THE SHINY!!!")
-            def check(msg):
-                return msg.content == "OMG SHINY" and msg.channel == message.channel             
-            msg = await bot.wait_for("message", check=check)
-            if msg.content:
-                 await message.channel.set_permissions(message.author, read_messages=True)
-                 await msg.reply("Done! Unlocked channel for Myuu. Good luck on catching the shiny!")
-    await bot.process_commands(message)
+c
         
 
 @bot.command(aliases=["latency"])
