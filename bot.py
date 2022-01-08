@@ -17,9 +17,6 @@ async def on_ready():
     print(f"{bot.user} is now online!")
 
 
-c
-        
-
 @bot.command(aliases=["latency"])
 async def ping(ctx):
     await ctx.reply(f"🏓Pong! `{round(bot.latency*1000)}ms`")
